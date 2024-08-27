@@ -1,0 +1,126 @@
+//Complete the Cup class by
+
+//Declaring private instance variable, int fluidAmount
+//Writing the constructor method without any input parameters. Initialise fluidAmount to 1.
+//Writing a get method for fluidAmount
+//Writing the method void pour(int ml) to add ml to fluidAmount. If fluidAmount exceeds the value 250 after addition, set fluidAmount to //250 
+//Write the method void empty() to set fluidAmount to 0
+//Write the method boolean isFull() to return true if fluidAmount is equal to 250, and false otherwise.
+//Complete the main method by
+
+//Using new to create a Cup instance
+//Invoke the pour(300) method on the Cup instance, with input parameter 300
+//Print the instance variable fluidAmount in standard output formatting
+//Printing the return value of boolean isFull() in standard output formatting
+//This import is necessary for your program to run in code validator
+import java.lang.reflect.*;
+
+
+public class Cup {
+    private int fluidAmount;
+
+    // Constructor method
+    public Cup() {
+        this.fluidAmount = 1; // Initialize fluidAmount to 1
+    }
+
+    // Getter method for fluidAmount
+    public int getFluidAmount() {
+        return this.fluidAmount;
+    }
+
+    // Method to add ml to fluidAmount
+    public void pour(int ml) {
+        this.fluidAmount += ml;
+        if (this.fluidAmount > 250) {
+            this.fluidAmount = 250; // Cap fluidAmount at 250
+        }
+    }
+
+    // Method to set fluidAmount to 0
+    public void empty() {
+        this.fluidAmount = 0;
+    }
+
+    // Method to check if the cup is full
+    public boolean isFull() {
+        return this.fluidAmount == 250; // Return true if the cup is full
+    }
+        
+
+    public static void main(String[] args) {
+       //initialise Cup object here
+       Cup cup = new Cup();
+       cup.pour(300);
+       System.out.println("fluidAmount = " + cup.getFluidAmount());
+        
+        // Print the return value of isFull()
+       System.out.println("isFull = " + cup.isFull());
+
+
+    }
+}
+
+//Complete the static int sum(int[] array) method to return the sum of positive elements in the input array.
+static int sum(int[] array)
+{
+    int sum = 0;
+    for (int value : array){
+        if(value > 0){
+            sum += value;
+        }
+    }
+   return sum;
+}
+
+//Write the method int occurrences(int nb, int[] numbers)
+//that finds the number of occurrences of the integer specified as the first parameter in the array of integers that is specified as the //second parameter. 
+int occurrences(int nb, int[] numbers)
+{
+    int count = 0;
+    for (int number : numbers){
+        if(number == nb){
+            count++;
+        }
+    }
+    return count;   
+   
+}
+
+//Complete the static int max(int[] array) 
+//method to return the maximum element in the input array. 
+//If array has length equal to 0, return 0.
+static int max(int[] array)
+{
+    if(array.length == 0){
+        return 0;
+    }
+    int max = array[0];
+    for(int value: array){
+        if(value > max){
+            max = value;
+        }
+    }
+   return max;
+}
+
+//Write the method
+//String longestString(String[] words)
+//that takes as input an array of strings and returns the longest string.
+
+//Hint: Remember that s.length() will return the length of String s.
+public String longestString(String[] words) {
+    if (words == null || words.length == 0) {
+        return ""; // or throw an exception if an empty array is not acceptable
+    }
+    
+    String longest = words[0];
+    
+    for (String word : words) {
+        if (word.length() > longest.length()) {
+            longest = word;
+        }
+    }
+    
+    return longest;
+}
